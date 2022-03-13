@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker-compose -f docker-compose.yml up --build -t 291984/react-test
+      - run: docker-compose -f docker-compose.yml up --build
       - run: docker run -e CI=true 291984/react-test npm test
 
       - name: Generate deployment package
